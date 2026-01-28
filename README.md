@@ -3,44 +3,9 @@
 ### The **`GameController`** is used to manage game logic and game state. 
 
 - Controls game state through the `_isGameOver` variable
-
 - `_score` and `_maxScore` track current and maximum scores
-
 - In the `Update()` method, uses a cooldown timer create pipes at random heights
-
-- Uses ***Singleton*** by
-
-  \```csharp
-
-  public delegate void PlayerDeadDelegate();
-
-  public event PlayerDeadDelegate OnPlayerDead;
-
-  private void OnTriggerEnter2D(Collider2D collider)
-
-  {
-
-    if (GameController._isGameOver) { return; }
-
-    if (collider.gameObject.CompareTag("Pipe"))
-
-    {
-
-  ​    OnPlayerDead?.Invoke();
-
-    }
-
-    if (collider.gameObject.CompareTag("Score"))
-
-    {
-
-  ​    OnPlayerScore?.Invoke();
-
-    }
-
-  }
-
-  \```
+- Uses ***Singleton***
 
 ### While **`Player`** class used to catch player input and **4** events：
 
